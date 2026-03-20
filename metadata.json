@@ -1,0 +1,5 @@
+{
+  "name": "Modern Clock",
+  "description": "A modern web-based clock application featuring World Clock, Alarms, Stopwatch, and Timer with a sleek UI and smooth animations.",
+  "requestFramePermissions": []
+}
