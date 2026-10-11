@@ -25,6 +25,20 @@
 
 .form-error{font-size:12px;color:var(--terra);margin-top:10px;line-height:1.6}.form-error:empty{display:none}
 .achievement>div{min-width:0;flex:1}.achievement-progress{display:block;width:100%;height:4px;border:0;border-radius:4px;overflow:hidden;margin-top:12px;background:#e3dfd4;accent-color:var(--olive)}.achievement-progress::-webkit-progress-bar{background:#e3dfd4}.achievement-progress::-webkit-progress-value{background:var(--olive)}.achievement-progress::-moz-progress-bar{background:var(--olive)}.achievement.unlocked .achievement-progress{accent-color:var(--gold)}.achievement.unlocked .achievement-progress::-webkit-progress-value{background:var(--gold)}.achievement.unlocked .achievement-progress::-moz-progress-bar{background:var(--gold)}
+
+/* Achievement celebration sits in the browser's top layer, above the day editor. */
+#achievement-dialog{width:min(440px,calc(100% - 32px));padding:42px 32px 30px;text-align:center;border:1px solid #cdb98c;border-radius:16px;background:radial-gradient(ellipse at 50% 0%,#f2e5c6 0%,#fcfaf6 65%);box-shadow:0 24px 90px #29291955;isolation:isolate}
+#achievement-dialog::backdrop{background:#25291d99;backdrop-filter:blur(7px)}
+#achievement-dialog[open]{animation:achievement-arrival .45s cubic-bezier(.16,1,.3,1)}
+.celebration-medal{position:relative;display:grid;place-items:center;width:104px;height:104px;margin:0 auto 24px;border:1px solid #c7a56a;border-radius:50%;background:linear-gradient(135deg,#fff9e8,#e9d6a8);box-shadow:0 0 0 7px #dfcdab33,0 0 0 8px #c9ac7644,inset 0 0 0 6px #fffcf366;color:#97742e}
+#achievement-popup-icon{font-size:50px;line-height:1}.celebration-medal::before,.celebration-medal::after{position:absolute;font-size:45px;color:var(--olive);content:'❧';bottom:-9px}.celebration-medal::before{left:-20px;transform:rotate(-30deg)}.celebration-medal::after{right:-20px;transform:scaleX(-1) rotate(-30deg)}
+#achievement-dialog .eyebrow{color:#927540;font-size:9px;margin-bottom:12px}#achievement-popup-title{font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:0;color:var(--olive);line-height:1.6}#achievement-popup-name{font-family:var(--serif);font-size:30px;line-height:1.2;margin:12px 0;color:var(--ink);overflow-wrap:anywhere}#achievement-popup-description{font-size:12px;line-height:1.8;color:#7f806f}
+#achievement-ok{min-width:160px;margin-top:25px;background:var(--olive)}#achievement-ok:hover{background:#515e40}#achievement-queue-count{font-size:10px;color:#8a8979;margin-top:15px}#achievement-queue-count:empty,#achievement-save-note:empty{display:none}#achievement-save-note{font-size:11px;line-height:1.6;color:var(--terra);margin-top:14px}
+.celebration-sparkles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}.celebration-sparkles i{position:absolute;left:var(--x);top:var(--y);color:var(--gold);font-size:16px;opacity:0}#achievement-dialog[open] .celebration-sparkles i{animation:achievement-sparkle 1.5s ease-out var(--delay) both}
+@keyframes achievement-arrival{from{opacity:0;transform:translateY(16px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes achievement-sparkle{0%{opacity:0;transform:translateY(20px) scale(.4) rotate(-35deg)}35%{opacity:.8}100%{opacity:0;transform:translateY(-25px) scale(1.15) rotate(30deg)}}
+@media(max-width:480px){#achievement-dialog{padding:32px 24px 25px}#achievement-popup-name{font-size:26px}.celebration-medal{width:88px;height:88px}#achievement-popup-icon{font-size:43px}#achievement-ok{width:100%}}
+@media(prefers-reduced-motion:reduce){#achievement-dialog[open],#achievement-dialog[open] .celebration-sparkles i{animation:none}.celebration-sparkles i{opacity:.45}}
 </style>
 
 </head>
@@ -65,6 +79,17 @@
     <footer class="site-footer"><span class="footer-brand">ЭТОС <span>·</span> В своём ритме. На своём пути.</span><span><i class="privacy-dot"></i> Данные хранятся только в вашем браузере</span></footer>
   </main>
   <dialog id="day-dialog" aria-labelledby="dialog-title"><div class="dialog-header"><div><p class="eyebrow">ОДИН ДЕНЬ — МНОГО ВОЗМОЖНОСТЕЙ</p><h2 id="dialog-title"></h2></div><button class="icon-button" id="close-dialog" aria-label="Закрыть">×</button></div><p class="dialog-description">Нажимайте на статус привычки, чтобы отметить свой прогресс.</p><p id="dialog-notice" class="dialog-notice" role="status" aria-live="polite"></p><div id="dialog-habits" class="habit-list"></div><form id="habit-form" novalidate><label for="habit-name">Новая привычка</label><div class="form-row"><input id="habit-name" name="habit" type="text" maxlength="100" placeholder="Например, читать 20 минут" required autocomplete="off" aria-describedby="habit-scope habit-error"><button id="add-habit" class="button primary" type="submit" aria-label="Добавить привычку">Добавить <span aria-hidden="true">＋</span></button></div><p id="habit-error" class="form-error" role="alert"></p><p id="habit-scope" class="form-help"></p></form><div class="dialog-legend">○ Не сделано <span>→</span> ◐ В процессе <span>→</span> ● Выполнено</div></dialog>
+  <dialog id="achievement-dialog" aria-labelledby="achievement-popup-title achievement-popup-name" aria-describedby="achievement-popup-description achievement-save-note">
+    <div class="celebration-sparkles" aria-hidden="true"><i style="--x:12%;--y:24%;--delay:0s">✧</i><i style="--x:82%;--y:30%;--delay:.15s">✦</i><i style="--x:23%;--y:15%;--delay:.25s">✦</i><i style="--x:73%;--y:12%;--delay:.1s">✧</i><i style="--x:9%;--y:57%;--delay:.2s">✧</i><i style="--x:88%;--y:62%;--delay:.3s">✧</i></div>
+    <div class="celebration-medal" aria-hidden="true"><span id="achievement-popup-icon"></span></div>
+    <p class="eyebrow">ВАШ МОМЕНТ ТРИУМФА</p>
+    <h2 id="achievement-popup-title">Открыто новое достижение!</h2>
+    <h3 id="achievement-popup-name"></h3>
+    <p id="achievement-popup-description"></p>
+    <p id="achievement-save-note"></p>
+    <button class="button primary" id="achievement-ok" type="button" autofocus>Ок</button>
+    <p id="achievement-queue-count"></p>
+  </dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script>
 const STORAGE_KEY = 'ethos-habit-tracker-v1';
@@ -95,6 +120,8 @@ let viewedMonth = new Date(fromKey(today).getFullYear(), fromKey(today).getMonth
 let storageProblem = '';
 let state = loadState();
 let toastTimer;
+const achievementQueue = [];
+let achievementReturnFocus = null;
 function loadState() {
   const empty = { days: {}, unlocked: {} };
   try {
@@ -148,7 +175,7 @@ function checkAchievements() {
   const newly = [];
   for (const a of achievements) if (metrics[a.metric] >= a.goal && !state.unlocked[a.id]) {
     state.unlocked[a.id] = today;
-    newly.push(a.title);
+    newly.push(a);
   }
   return newly;
 }
@@ -156,8 +183,37 @@ function commit() {
   const newly = checkAchievements();
   const saved = persist();
   render();
-  if (saved && newly.length) notify(`Новые достижения: ${newly.join(' · ')}. Достойно лавров!`);
+  if (newly.length) celebrateAchievements(newly, saved);
 }
+function celebrateAchievements(newly, saved) {
+  achievementQueue.push(...newly.map(achievement => ({ achievement, saved })));
+  // Wait until the triggering action has restored focus to the re-rendered habit.
+  queueMicrotask(() => {
+    if ($('#achievement-dialog').open) return;
+    achievementReturnFocus = document.activeElement;
+    showNextAchievement();
+  });
+}
+function showNextAchievement() {
+  const next = achievementQueue.shift();
+  if (!next) return;
+  const { achievement, saved } = next;
+  $('#achievement-popup-icon').textContent = achievement.icon;
+  $('#achievement-popup-name').textContent = achievement.title;
+  $('#achievement-popup-description').textContent = achievement.description;
+  $('#achievement-save-note').textContent = saved ? '' : 'Награда получена, но браузер не разрешил сохранить прогресс. Он доступен только в этой вкладке.';
+  $('#achievement-queue-count').textContent = achievementQueue.length ? `Далее наград: ${achievementQueue.length}` : '';
+  $('#achievement-dialog').showModal();
+  $('#achievement-ok').focus({ preventScroll: true });
+}
+$('#achievement-ok').addEventListener('click', () => $('#achievement-dialog').close());
+// Escape also acknowledges this reward; the day editor stays open underneath.
+$('#achievement-dialog').addEventListener('close', () => {
+  if (achievementQueue.length) { showNextAchievement(); return; }
+  const fallback = $('#day-dialog').open ? $('#habit-name') : $('#manage-day');
+  (achievementReturnFocus?.isConnected ? achievementReturnFocus : fallback).focus({ preventScroll: true });
+  achievementReturnFocus = null;
+});
 function renderStats() {
   const now = fromKey(today);
   const monday = shifted(now, -((now.getDay() + 6) % 7));
