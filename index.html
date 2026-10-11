@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="description" content="Этос — спокойное пространство для полезных привычек. Маленькие шаги, достойные большого пути.">
+  <title>Этос — искусство постоянства</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+:root{--paper:#f5f2eb;--surface:#fcfaf6;--ink:#30352b;--muted:#858579;--line:#e3dfd4;--terra:#aa624a;--olive:#657052;--gold:#ac8b4e;--serif:'Playfair Display',Georgia,serif;--sans:'Manrope',Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;-webkit-font-smoothing:antialiased}button,input,a{-webkit-tap-highlight-color:transparent}button,input{font:inherit}button,a{touch-action:manipulation}button{cursor:pointer}button{color:inherit}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #b49a68;outline-offset:4px}button{transition:background .18s,transform .18s,box-shadow .18s}button:active{transform:translateY(1px)}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--serif);font-weight:500}.site-header{max-width:1220px;margin:auto;min-height:100px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:24px;padding:0 10px}.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:25px;letter-spacing:5px}.brand-mark{font-size:40px;font-weight:400;border:1px solid #b7a582;width:43px;height:47px;display:grid;place-items:center;line-height:1;color:var(--gold);letter-spacing:0;box-shadow:inset 0 0 0 4px var(--paper),inset 0 0 0 5px #d7cbb4}.brand small{font-family:var(--sans);display:block;font-size:7px;letter-spacing:1.7px;margin-top:5px;font-weight:600}.site-header nav{display:flex;align-self:stretch;gap:35px}.nav-link{display:flex;align-items:center;gap:10px;color:#7b7d71;font-size:12px;position:relative}.nav-link.active{color:var(--terra);font-weight:700}.nav-link.active:after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--terra)}.local-badge{font-size:10px;color:var(--muted);display:flex;align-items:center;gap:8px}.local-badge i,.privacy-dot{display:inline-block;width:6px;height:6px;border-radius:100%;background:#8e987d}main{max-width:1140px;margin:auto;padding:0 0 28px}.intro{display:flex;justify-content:space-between;align-items:center;padding:50px 0 40px;gap:40px}.eyebrow{font-size:9px;letter-spacing:1.9px;font-family:var(--sans);font-weight:700;color:#858573;line-height:1.6}.intro .eyebrow{display:flex;align-items:center;gap:10px}.intro .eyebrow span{width:22px;height:1px;background:var(--terra)}h1{font-size:52px;line-height:1.13;letter-spacing:-1.5px;margin:17px 0 18px}h1 em{color:var(--terra);font-weight:400}.intro-description{font-size:12px;line-height:1.9;color:#777a6e}.button{border:1px solid transparent;border-radius:5px;min-height:45px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:11px 19px;font-size:12px;font-weight:600}.primary{background:var(--terra);color:#fffaf2;box-shadow:0 3px 6px #66351d0b}.primary:hover{background:#95543e}.intro .button{margin-top:25px}.button span{font-size:19px;font-weight:400}.outline{border-color:#d5d8ca;color:var(--olive);background:transparent}.outline:hover{background:#edf0e6}.full-width{width:100%}.hero-art{width:360px;flex-shrink:0;margin-right:25px;text-align:center;position:relative}.hero-art svg{display:block;width:100%}.hero-art p{font-family:var(--serif);font-size:10px;letter-spacing:3px;color:#958568}.hero-art p span{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.4px;color:#979185;margin-top:9px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:30px}.stat-card{display:flex;align-items:flex-start;gap:17px;background:#f9f7f1;border:1px solid var(--line);border-radius:7px;padding:23px}.stat-icon{height:42px;width:42px;border:1px solid;display:grid;place-items:center;border-radius:50%;font-size:22px;flex-shrink:0}.terracotta{color:var(--terra);border-color:#e9d7ca;background:#f4e9df}.olive{color:var(--olive);border-color:#dce1d1;background:#ecede4}.gold{color:var(--gold);border-color:#e9dec7;background:#f3ecdd}.stat-card>div:last-child{flex:1}.stat-card p{font-size:10px;color:#7d8072;margin-bottom:5px}.stat-value{display:flex;align-items:baseline;gap:9px}.stat-value strong{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.3}.stat-value span{font-size:9px;color:#858678}.stat-card small{font-size:9px;color:#939487;display:block;margin-top:8px}.progress-track{height:4px;background:#e9e5dc;border-radius:5px;overflow:hidden;margin-top:11px}.progress-track>div{height:100%;width:0;background:var(--terra);border-radius:5px;transition:width .35s ease}.workspace-grid{display:grid;grid-template-columns:minmax(0,1.85fr) minmax(0,1fr);gap:24px;align-items:stretch}.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;box-shadow:0 3px 6px #4d482603}.calendar-card{padding:27px 28px 20px}.section-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.section-heading .eyebrow{font-size:8px;letter-spacing:1.7px;margin-bottom:5px}h2{font-size:24px;letter-spacing:-.4px}.text-button{background:none;border:0;font-size:10px;color:var(--olive);min-height:44px;padding:0 5px;white-space:nowrap}.text-button span{margin-left:7px}.month-navigation{display:flex;justify-content:space-between;align-items:center;margin:24px 0 14px}.month-navigation h3{font-family:var(--sans);font-size:13px;font-weight:600;text-transform:capitalize}.month-navigation>div{display:flex;gap:5px}.icon-button{border:1px solid var(--line);background:transparent;border-radius:5px;width:38px;height:38px;font-size:25px;line-height:1;display:grid;place-items:center}.icon-button:hover{background:#eeebe2}.weekdays,.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}.weekdays{text-align:center;font-size:9px;letter-spacing:1px;color:#99998d;margin-bottom:12px}.weekdays span:nth-last-child(-n+2){color:#b29b8b}.calendar-day{min-width:0;position:relative;min-height:61px;background:#f6f4ee;border:1px solid transparent;border-radius:5px;font-size:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}.calendar-day:hover{border-color:#c6b795;background:#f0ece1}.calendar-day.outside{background:transparent;color:#b7b6ac}.calendar-day.today{border-color:var(--terra);color:var(--terra);font-weight:800}.calendar-day.selected{background:var(--olive);color:#fffdf3;border-color:var(--olive);box-shadow:0 3px 8px #4d563520}.day-dots{display:flex;gap:3px;height:5px;position:absolute;bottom:9px}.day-dots i,.legend-dot{width:5px;height:5px;display:inline-block;border-radius:50%}.completed{background:var(--olive)}.partial{background:#be8a65}.pending{background:#c4c2b9}.selected .day-dots .completed{background:#d3ddb9}.selected .day-dots .pending{background:#b8bea8}.calendar-footer{display:flex;justify-content:center;gap:21px;border-top:1px solid var(--line);padding-top:18px;margin-top:22px;font-size:9px;color:#86877a}.calendar-footer span{display:flex;align-items:center;gap:6px}.calendar-hint{text-align:center;font-size:9px;color:#a1a094;margin-top:13px}.day-panel{padding:27px 25px 0;display:flex;flex-direction:column}.small-sun{font-size:32px;color:#b1a17e}.day-summary{display:flex;justify-content:space-between;font-size:10px;color:#858879;margin-top:22px}.day-summary>span:last-child{color:var(--olive);font-weight:700}.olive-track>div{background:var(--olive)}.habit-list{display:grid;gap:10px;margin:20px 0}.empty-state{text-align:center;padding:25px 12px 24px}.empty-symbol{width:54px;height:54px;border:1px solid #dfdccc;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;color:#9a9e80;font-size:28px;background:#f3f2e9}.empty-state h3{font-size:19px;margin-bottom:9px}.empty-state p{color:#8c8e81;font-size:11px;line-height:1.8;max-width:225px;margin:auto}.day-note{margin:25px -25px 0;padding:22px 14px;background:#f3f2ea;border-top:1px solid var(--line);text-align:center;margin-top:auto;border-radius:0 0 8px 8px}.day-panel>.button{margin-bottom:24px}.day-note>span{color:#9b9d7e;font-size:29px;line-height:1}.day-note p{font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.6;color:#767b65;margin-top:6px}.day-note small{display:block;font-family:var(--sans);font-size:7px;font-style:normal;letter-spacing:1.2px;margin-top:10px;color:#9a9c8c}.habit-row{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;background:#f8f6f0;padding:10px 8px 10px 12px;min-width:0}.status-button{flex-shrink:0;border:1px solid #c9c7bc;border-radius:50%;width:36px;height:36px;min-height:36px;background:transparent;font-size:17px;color:#9a9a8c}.habit-row[data-status="1"] .status-button{background:#f0e1d6;border-color:#c49777;color:var(--terra)}.habit-row[data-status="2"] .status-button{background:var(--olive);border-color:var(--olive);color:white}.habit-text{min-width:0;flex:1}.habit-text strong{font-size:11px;line-height:1.6;display:block;overflow-wrap:anywhere;font-weight:600}.habit-text small{font-size:9px;color:#959789;display:block;margin-top:3px}.habit-row[data-status="2"] .habit-text strong{color:var(--olive)}.delete-button{background:none;border:0;color:#a4a195;border-radius:4px;min-width:36px;min-height:40px;font-size:18px}.delete-button:hover{color:var(--terra);background:#f0e3d9}.achievements-section{margin-top:37px}.achievement-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.achievement-heading .eyebrow{font-size:8px;margin-bottom:6px}.achievement-heading>span{font-size:10px;color:#929486}.achievements-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.achievement{border:1px solid var(--line);border-radius:7px;display:flex;gap:12px;padding:20px 15px;align-items:flex-start;background:#f2f0e9;color:#949489;position:relative}.achievement-icon{font-size:27px;line-height:1.3;flex-shrink:0;width:35px;text-align:center;filter:grayscale(1);opacity:.6}.achievement h3{font-size:14px;margin-bottom:7px;line-height:1.4}.achievement p{font-size:9px;line-height:1.7;color:#97978a}.achievement small{font-size:8px;display:block;margin-top:9px;color:#9f9f91}.achievement.unlocked{background:#f5efdf;border-color:#d6c297;color:#796435}.achievement.unlocked .achievement-icon{filter:none;opacity:1;color:#a28546}.achievement.unlocked small{color:var(--olive)}.site-footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);margin-top:42px;padding-top:23px;color:#9b9b8e;font-size:9px}.footer-brand{letter-spacing:.4px}.footer-brand span{margin:0 7px}.privacy-dot{margin-right:6px;width:5px;height:5px}dialog{border:1px solid #d8d0bc;background:var(--surface);color:var(--ink);border-radius:12px;width:min(550px,calc(100% - 30px));max-height:85dvh;padding:28px;box-shadow:0 30px 90px #26251d33;overflow-y:auto}dialog::backdrop{background:#282a2266;backdrop-filter:blur(5px)}dialog[open]{animation:appear .2s ease}.dialog-header{display:flex;align-items:center;justify-content:space-between;gap:10px}.dialog-header .eyebrow{font-size:8px;margin-bottom:8px}.dialog-header h2{text-transform:capitalize}.dialog-header .icon-button{flex-shrink:0}.dialog-description{font-size:11px;color:var(--muted);line-height:1.8;margin-top:15px}.dialog-legend{border-top:1px solid var(--line);margin-top:22px;padding-top:18px;display:flex;align-items:center;justify-content:center;gap:9px;font-size:9px;color:#858574}.dialog-legend span{color:#b1a58d}#habit-form{margin-top:22px}#habit-form label{font-size:11px;font-weight:700;display:block;margin-bottom:9px}.form-row{display:flex;gap:8px}.form-row input{width:100%;min-width:0;background:#f5f3ec;border:1px solid #d9d6ca;border-radius:5px;padding:12px;color:var(--ink);font-size:12px}.form-row input::placeholder{color:#a09f91}.form-help{font-size:9px;color:#929384;margin-top:9px}.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);background:var(--ink);color:#fff9e8;padding:15px 22px;border-radius:8px;font-size:12px;box-shadow:0 8px 30px #30352b26;opacity:0;pointer-events:none;transition:.25s;z-index:5;width:max-content;max-width:calc(100% - 32px);line-height:1.7}.toast.visible{opacity:1;transform:translate(-50%,0)}@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1400px){.intro{padding-top:58px;padding-bottom:48px}.hero-art{width:390px}}
+@media(max-width:1240px){.site-header{margin:0 32px}main{margin:0 48px}.hero-art{margin-right:0;width:320px}.stat-card{padding:20px 16px}.stat-value{gap:7px}.calendar-card{padding:24px 22px 20px}.day-panel{padding:24px 20px 0}.day-note{margin-left:-20px;margin-right:-20px}.achievement{padding:17px 12px;gap:7px}.achievement-icon{width:28px}}
+@media(max-width:1000px){main{margin:0 28px}.hero-art{width:280px}.local-badge{display:none}.site-header{min-height:88px}h1{font-size:46px}.intro{gap:20px}.stat-card{gap:11px}.stat-value{flex-wrap:wrap;gap:0 8px}.stat-value span{font-size:8px}.workspace-grid{gap:18px;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}.calendar-day{min-height:55px}.calendar-card{padding:22px 18px 18px}.calendar-grid,.weekdays{gap:5px}h2{font-size:21px}.day-panel{padding:22px 17px 0}.day-note{margin-left:-17px;margin-right:-17px}.achievements-grid{grid-template-columns:repeat(2,1fr)}.achievement{padding:20px}.achievement h3{font-size:16px}}
+@media(max-width:720px){main{margin:0 20px}.site-header{margin:0 20px;padding:0;min-height:80px;gap:12px}.brand{font-size:22px;gap:9px}.brand-mark{width:35px;height:40px;font-size:32px}.brand small{font-size:6px;letter-spacing:1px}.site-header nav{gap:18px}.nav-link{font-size:10px}.intro{padding:35px 0 29px}.intro .eyebrow{font-size:7px;letter-spacing:1.2px}h1{font-size:44px}.hero-art{display:none}.intro-description{font-size:11px}.stats{gap:9px;margin-bottom:23px}.stat-card{padding:15px 11px;display:block}.stat-icon{width:29px;height:29px;font-size:17px;margin-bottom:10px}.stat-value{display:block}.stat-value strong{display:block;font-size:27px}.stat-value span{display:block;font-size:8px;line-height:1.7}.stat-card p{font-size:9px}.stat-card small{font-size:8px;line-height:1.6}.stat-card .progress-track{margin-top:8px}.workspace-grid{grid-template-columns:1fr}.calendar-card{padding:22px 16px 18px}.calendar-day{min-height:58px}.month-navigation{margin-top:20px}.icon-button{width:44px;height:44px}.day-panel{padding:23px 22px 0}.day-note{margin-left:-22px;margin-right:-22px;padding:19px}.empty-state{padding:20px 12px}.day-note p br{display:none}.day-note>span{display:none}.day-note small{font-size:7px}.achievements-section{margin-top:30px}.achievement{padding:16px 12px;display:block}.achievement-icon{display:block;margin-bottom:9px}.achievement h3{font-size:15px}.achievement p{font-size:9px}.achievements-grid{gap:10px}.achievement-heading>span{font-size:9px}.site-footer{flex-direction:column;align-items:center;text-align:center;margin-top:30px;gap:12px;font-size:8px}.status-button{width:44px;height:44px}.delete-button{min-width:44px;min-height:44px}.habit-text strong{font-size:12px}.habit-text small{font-size:10px}.form-row input{font-size:16px}.form-row{flex-wrap:wrap}.form-row .button{width:100%}dialog{padding:23px 19px}.dialog-legend{font-size:8px;gap:6px}.calendar-footer{gap:16px;font-size:8px}.calendar-hint{font-size:8px}}
+@media(max-width:370px){main,.site-header{margin-left:12px;margin-right:12px}.brand small{display:none}.site-header nav{gap:12px}.nav-link{font-size:9px}h1{font-size:39px}.calendar-day{min-height:48px}.calendar-card{padding-left:12px;padding-right:12px}.calendar-grid,.weekdays{gap:4px}.calendar-footer{gap:10px}.eyebrow{letter-spacing:1px}.stat-card{padding:13px 9px}.stat-value span{font-size:7px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+.dialog-notice{font-size:11px;line-height:1.7;color:var(--olive);padding:12px;background:#edf0e5;border-radius:5px;margin-top:14px}.dialog-notice:empty{display:none}
+
+.stat-card p{font-size:11px}.stat-value span,.stat-card small{font-size:10px}.calendar-footer,.calendar-hint{font-size:10px}.achievement p{font-size:11px}.achievement small{font-size:10px}.local-badge{font-size:11px}.site-footer{font-size:10px}
+@media(max-width:720px){.stat-card p,.stat-value span,.stat-card small{font-size:10px}.calendar-footer,.calendar-hint{font-size:9px}.achievement p{font-size:11px}.achievement small{font-size:10px}.intro-description{font-size:12px}.site-footer{font-size:9px}.nav-link{min-height:44px}.dialog-legend{font-size:9px;flex-wrap:wrap}.form-help{font-size:11px}}
+
+.form-error{font-size:12px;color:var(--terra);margin-top:10px;line-height:1.6}.form-error:empty{display:none}
+.achievement>div{min-width:0;flex:1}.achievement-progress{display:block;width:100%;height:4px;border:0;border-radius:4px;overflow:hidden;margin-top:12px;background:#e3dfd4;accent-color:var(--olive)}.achievement-progress::-webkit-progress-bar{background:#e3dfd4}.achievement-progress::-webkit-progress-value{background:var(--olive)}.achievement-progress::-moz-progress-bar{background:var(--olive)}.achievement.unlocked .achievement-progress{accent-color:var(--gold)}.achievement.unlocked .achievement-progress::-webkit-progress-value{background:var(--gold)}.achievement.unlocked .achievement-progress::-moz-progress-bar{background:var(--gold)}
+</style>
+
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Этос — главная"><span class="brand-mark" aria-hidden="true">Ε</span><span>ЭТОС<small>ИСКУССТВО ПОСТОЯНСТВА</small></span></a>
+    <nav aria-label="Основная навигация"><a class="nav-link active" href="#calendar-section">Мой путь</a><a class="nav-link" href="#achievements">Достижения <span aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.3"/></svg></span></a></nav>
+    <span class="local-badge"><i></i> Ваше личное пространство</span>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="welcome-title">
+      <div><p class="eyebrow"><span></span> МАЛЕНЬКИЕ ШАГИ. БОЛЬШИЕ ПЕРЕМЕНЫ.</p><h1 id="welcome-title">Характер создаётся<br>из <em>привычек.</em></h1><p class="intro-description">Не стремитесь к совершенству. Стремитесь к постоянству.<br class="desktop-break"> Ваш новый день — ещё одна возможность стать ближе к себе.</p><button class="button primary" id="hero-add"><span aria-hidden="true">＋</span> Добавить привычку</button></div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 400 250" fill="none"><circle cx="207" cy="116" r="97" fill="#ebe4d6"/><circle cx="207" cy="116" r="113" stroke="#d7cebd" stroke-dasharray="2 6"/><path d="M60 215H342M78 222H325" stroke="#c8baa0"/><path d="M107 89L205 40L305 89H107Z" fill="#efe9dd" stroke="#a69675" stroke-width="1.3"/><path d="M129 82L205 53L282 82H129Z" stroke="#b3a386"/><path d="M103 92H309V103H103zM111 106H301V114H111z" fill="#dfd4bf" stroke="#a69675"/><path d="M110 199H303V207H110zM100 207H313V215H100z" fill="#e2d8c5" stroke="#a69675"/><g fill="#efe8da" stroke="#a69675"><path d="M121 116H148V125H121zM125 125H144L146 189H123zM120 190H149V198H120z"/><path d="M170 116H197V125H170zM174 125H193L195 189H172zM169 190H198V198H169z"/><path d="M219 116H246V125H219zM223 125H242L244 189H221zM218 190H247V198H218z"/><path d="M268 116H295V125H268zM272 125H291L293 189H270zM267 190H296V198H267z"/></g><g stroke="#c6b99f"><path d="M130 130V185M138 130V185M179 130V185M187 130V185M228 130V185M236 130V185M277 130V185M285 130V185"/></g><path d="M83 207C70 181 63 162 69 139M321 207C339 185 344 168 342 144" stroke="#818467" stroke-width="2"/><g fill="#9c9e80"><ellipse cx="67" cy="178" rx="5" ry="13" transform="rotate(-40 67 178)"/><ellipse cx="79" cy="169" rx="5" ry="13" transform="rotate(30 79 169)"/><ellipse cx="64" cy="150" rx="4" ry="11" transform="rotate(-25 64 150)"/><ellipse cx="333" cy="184" rx="5" ry="13" transform="rotate(35 333 184)"/><ellipse cx="337" cy="163" rx="5" ry="12" transform="rotate(-30 337 163)"/><ellipse cx="347" cy="151" rx="4" ry="10" transform="rotate(25 347 151)"/></g><path d="M322 64V78M315 71H329M91 108V116M87 112H95" stroke="#bfa47b"/></svg>
+        <p>GUTTA CAVAT LAPIDEM<span>Капля точит камень</span></p>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Статистика привычек">
+      <article class="stat-card"><div class="stat-icon terracotta" aria-hidden="true">◷</div><div><p>Сегодня</p><div class="stat-value"><strong id="today-percent">0%</strong><span id="today-count">0 из 0 выполнено</span></div><div class="progress-track" role="progressbar" aria-label="Прогресс за сегодня" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="today-progress"><div></div></div></div></article>
+      <article class="stat-card"><div class="stat-icon olive" aria-hidden="true">✓</div><div><p>Эта неделя</p><div class="stat-value"><strong id="week-count">0</strong><span>привычек выполнено</span></div><small id="week-range"></small></div></article>
+      <article class="stat-card"><div class="stat-icon gold" aria-hidden="true">☀&#65038;</div><div><p>Этот месяц</p><div class="stat-value"><strong id="month-count">0</strong><span>привычек выполнено</span></div><small id="month-caption">Каждый шаг имеет значение</small></div></article>
+    </section>
+
+    <div class="workspace-grid">
+      <section class="calendar-card panel" id="calendar-section" aria-labelledby="calendar-title">
+        <div class="section-heading"><div><p class="eyebrow">ДЕНЬ ЗА ДНЁМ</p><h2 id="calendar-title">Календарь привычек</h2></div><button class="text-button" id="go-today">Сегодня <span aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.3"/></svg></span></button></div>
+        <div class="month-navigation"><h3 id="month-label"></h3><div><button class="icon-button" id="prev-month" aria-label="Предыдущий месяц">‹</button><button class="icon-button" id="next-month" aria-label="Следующий месяц">›</button></div></div>
+        <div class="weekdays" aria-hidden="true"><span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span></div>
+        <div class="calendar-grid" id="calendar" aria-label="Даты месяца"></div>
+        <div class="calendar-footer"><span><i class="legend-dot completed"></i> Выполнено</span><span><i class="legend-dot partial"></i> В процессе</span><span><i class="legend-dot pending"></i> Не сделано</span></div>
+        <p class="calendar-hint">Выберите день, чтобы позаботиться о своих привычках</p>
+      </section>
+      <aside class="day-panel panel" aria-labelledby="day-panel-title"><div class="section-heading"><div><p class="eyebrow" id="selected-caption">СЕГОДНЯ</p><h2 id="day-panel-title"></h2></div><span class="small-sun" aria-hidden="true">✺</span></div><div class="day-summary"><span id="selected-summary"></span><span id="selected-percent">0%</span></div><div class="progress-track olive-track"><div id="selected-progress"></div></div><div id="selected-habits" class="habit-list"></div><button class="button outline full-width" id="manage-day"><span aria-hidden="true">＋</span> Добавить привычку</button><div class="day-note"><span aria-hidden="true">❧</span><p>«Мы — это то, что мы делаем<br>изо дня в день».<small>ПУСТЬ ХОРОШЕЕ СТАНЕТ ПРИВЫЧКОЙ</small></p></div></aside>
+    </div>
+
+    <section class="achievements-section" id="achievements" aria-labelledby="achievements-title"><div class="achievement-heading"><div><p class="eyebrow">ВАШИ МАЛЕНЬКИЕ ПОБЕДЫ</p><h2 id="achievements-title">Достойно лавров</h2></div><span id="achievement-count">0 из 12 открыто</span></div><div class="achievements-grid" id="achievement-list"></div></section>
+    <footer class="site-footer"><span class="footer-brand">ЭТОС <span>·</span> В своём ритме. На своём пути.</span><span><i class="privacy-dot"></i> Данные хранятся только в вашем браузере</span></footer>
+  </main>
+  <dialog id="day-dialog" aria-labelledby="dialog-title"><div class="dialog-header"><div><p class="eyebrow">ОДИН ДЕНЬ — МНОГО ВОЗМОЖНОСТЕЙ</p><h2 id="dialog-title"></h2></div><button class="icon-button" id="close-dialog" aria-label="Закрыть">×</button></div><p class="dialog-description">Нажимайте на статус привычки, чтобы отметить свой прогресс.</p><p id="dialog-notice" class="dialog-notice" role="status" aria-live="polite"></p><div id="dialog-habits" class="habit-list"></div><form id="habit-form" novalidate><label for="habit-name">Новая привычка</label><div class="form-row"><input id="habit-name" name="habit" type="text" maxlength="100" placeholder="Например, читать 20 минут" required autocomplete="off" aria-describedby="habit-scope habit-error"><button id="add-habit" class="button primary" type="submit" aria-label="Добавить привычку">Добавить <span aria-hidden="true">＋</span></button></div><p id="habit-error" class="form-error" role="alert"></p><p id="habit-scope" class="form-help"></p></form><div class="dialog-legend">○ Не сделано <span>→</span> ◐ В процессе <span>→</span> ● Выполнено</div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+const STORAGE_KEY = 'ethos-habit-tracker-v1';
+const $ = (selector) => document.querySelector(selector);
+const STATUSES = ['Не сделано', 'В процессе', 'Выполнено'];
+const SYMBOLS = ['○', '◐', '✓'];
+const achievements = [
+  { id: 'first', title: 'Первый шаг героя', description: 'Выполните свою первую привычку', icon: '♜', metric: 'total', goal: 1 },
+  { id: 'spartan', title: 'Спартанская дисциплина', description: 'Выполните 3 привычки за один день', icon: '♧', metric: 'bestDay', goal: 3 },
+  { id: 'triumph', title: 'Триумф', description: 'Выполняйте привычки 3 дня подряд', icon: '♕', metric: 'streak', goal: 3 },
+  { id: 'laurel', title: 'Лавровый венок', description: 'Выполните 10 привычек за всё время', icon: '❧', metric: 'total', goal: 10 },
+  { id: 'harmony', title: 'Гармония дня', description: 'Выполните все привычки одного дня — хотя бы одну', icon: '☯', metric: 'perfectDays', goal: 1 },
+  { id: 'titan', title: 'Сила титана', description: 'Выполните 5 привычек за один день', icon: '⚒', metric: 'bestDay', goal: 5 },
+  { id: 'stoic', title: 'Неделя стоика', description: 'Выполняйте хотя бы одну привычку 7 дней подряд', icon: '♜', metric: 'streak', goal: 7 },
+  { id: 'path', title: 'Верность пути', description: 'Выполняйте хотя бы одну привычку 14 дней подряд', icon: '❧', metric: 'streak', goal: 14 },
+  { id: 'olympian', title: 'Олимпийский характер', description: 'Выполняйте хотя бы одну привычку 30 дней подряд', icon: '♕', metric: 'streak', goal: 30 },
+  { id: 'master', title: 'Мастер постоянства', description: 'Выполните 25 привычек за всё время', icon: '⚒', metric: 'total', goal: 25 },
+  { id: 'gold', title: 'Золотой венец', description: 'Выполните 50 привычек за всё время', icon: '♕', metric: 'total', goal: 50 },
+  { id: 'legend', title: 'Легенда Олимпа', description: 'Выполните 100 привычек за всё время', icon: '✧', metric: 'total', goal: 100 },
+];
+function dateKey(date) { return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`; }
+function fromKey(key) { const [y, m, d] = key.split('-').map(Number); return new Date(y, m - 1, d, 12); }
+function shifted(date, days) { const result = new Date(date); result.setDate(result.getDate() + days); return result; }
+function validDateKey(key) { return /^\d{4}-\d{2}-\d{2}$/.test(key) && dateKey(fromKey(key)) === key; }
+let today = dateKey(new Date());
+let selected = today;
+let viewedMonth = new Date(fromKey(today).getFullYear(), fromKey(today).getMonth(), 1, 12);
+let storageProblem = '';
+let state = loadState();
+let toastTimer;
+function loadState() {
+  const empty = { days: {}, unlocked: {} };
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return empty;
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object' || !parsed.days || typeof parsed.days !== 'object') throw new Error('Invalid data');
+    for (const [key, list] of Object.entries(parsed.days)) {
+      if (!validDateKey(key) || !Array.isArray(list)) continue;
+      const seen = new Set();
+      empty.days[key] = list.filter(h => h && typeof h.id === 'string' && typeof h.name === 'string' && h.name.trim() && [0, 1, 2].includes(h.status)).filter(h => {
+        if (seen.has(h.id)) return false;
+        seen.add(h.id); return true;
+      }).map(h => ({ id: h.id, name: h.name.trim().slice(0, 100), status: h.status }));
+    }
+    for (const a of achievements) if (typeof parsed.unlocked?.[a.id] === 'string' && validDateKey(parsed.unlocked[a.id])) empty.unlocked[a.id] = parsed.unlocked[a.id];
+    return empty;
+  } catch {
+    storageProblem = 'Не удалось прочитать сохранение. Изменения будут доступны в этой вкладке; проверьте доступ к хранилищу браузера.';
+    return empty;
+  }
+}
+function persist() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); return true; }
+  catch { notify('Браузер не разрешил сохранить данные. Они доступны только до закрытия страницы.'); return false; }
+}
+function notify(message) { clearTimeout(toastTimer); $('#toast').textContent = message; $('#dialog-notice').textContent = $('#day-dialog').open ? message : '';  $('#toast').classList.add('visible'); toastTimer = setTimeout(() => $('#toast').classList.remove('visible'), 5500); }
+function habits(key) { return state.days[key] || []; }
+function completed(key) { return habits(key).filter(h => h.status === 2).length; }
+function progress(key) { const total = habits(key).length; return total ? Math.round(completed(key) / total * 100) : 0; }
+function fullDate(key) { return fromKey(key).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }); }
+function shortDate(date) { return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' }); }
+function achievementMetrics() {
+  const metrics = { total: 0, bestDay: 0, streak: 0, perfectDays: 0 };
+  let previousDay = null, currentStreak = 0;
+  for (const key of Object.keys(state.days).sort()) {
+    const count = completed(key);
+    if (!count) continue;
+    metrics.total += count;
+    metrics.bestDay = Math.max(metrics.bestDay, count);
+    if (count === habits(key).length) metrics.perfectDays++;
+    const precedingDay = dateKey(shifted(fromKey(key), -1));
+    currentStreak = previousDay === precedingDay ? currentStreak + 1 : 1;
+    metrics.streak = Math.max(metrics.streak, currentStreak);
+    previousDay = key;
+  }
+  return metrics;
+}
+function checkAchievements() {
+  const metrics = achievementMetrics();
+  const newly = [];
+  for (const a of achievements) if (metrics[a.metric] >= a.goal && !state.unlocked[a.id]) {
+    state.unlocked[a.id] = today;
+    newly.push(a.title);
+  }
+  return newly;
+}
+function commit() {
+  const newly = checkAchievements();
+  const saved = persist();
+  render();
+  if (saved && newly.length) notify(`Новые достижения: ${newly.join(' · ')}. Достойно лавров!`);
+}
+function renderStats() {
+  const now = fromKey(today);
+  const monday = shifted(now, -((now.getDay() + 6) % 7));
+  const sunday = shifted(monday, 6);
+  const weekStart = dateKey(monday), weekEnd = dateKey(sunday);
+  let week = 0, month = 0;
+  for (const key of Object.keys(state.days)) {
+    if (key >= weekStart && key <= weekEnd) week += completed(key);
+    if (key.slice(0, 7) === today.slice(0, 7)) month += completed(key);
+  }
+  $('#today-percent').textContent = `${progress(today)}%`;
+  $('#today-count').textContent = `${completed(today)} из ${habits(today).length} выполнено`;
+  $('#today-progress').setAttribute('aria-valuenow', progress(today));
+  $('#today-progress > div').style.width = `${progress(today)}%`;
+  $('#week-count').textContent = week;
+  $('#month-count').textContent = month;
+  $('#week-range').textContent = `${shortDate(monday)} — ${shortDate(sunday)}`;
+  $('#month-caption').textContent = `${now.toLocaleDateString('ru-RU', { month: 'long', year: 'numeric' })} · шаг за шагом`;
+}
+function renderCalendar() {
+  $('#month-label').textContent = viewedMonth.toLocaleDateString('ru-RU', { month: 'long', year: 'numeric' }).replace(' г.', '');
+  const start = shifted(viewedMonth, -((viewedMonth.getDay() + 6) % 7));
+  const count = Math.ceil((((viewedMonth.getDay() + 6) % 7) + new Date(viewedMonth.getFullYear(), viewedMonth.getMonth() + 1, 0).getDate()) / 7) * 7;
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i < count; i++) {
+    const date = shifted(start, i), key = dateKey(date);
+    const button = document.createElement('button');
+    button.className = 'calendar-day';
+    button.classList.toggle('outside', date.getMonth() !== viewedMonth.getMonth());
+    button.classList.toggle('today', key === today);
+    button.classList.toggle('selected', key === selected);
+    button.dataset.date = key;
+    button.setAttribute('aria-label', `${fullDate(key)}${key === today ? ', сегодня' : ''}, выполнено ${completed(key)} из ${habits(key).length}`);
+    button.setAttribute('aria-pressed', String(key === selected));
+    if (key === today) button.setAttribute('aria-current', 'date');
+    const number = document.createElement('span'); number.textContent = date.getDate(); button.append(number);
+    const dots = document.createElement('span'); dots.className = 'day-dots'; dots.setAttribute('aria-hidden', 'true');
+    // One dot per status keeps every day's indicators legible, regardless of habit count.
+    for (const status of [...new Set(habits(key).map(h => h.status))].sort()) {
+      const dot = document.createElement('i'); dot.className = ['pending', 'partial', 'completed'][status]; dots.append(dot);
+    }
+    button.append(dots); fragment.append(button);
+  }
+  $('#calendar').replaceChildren(fragment);
+}
+function renderHabitList(container, key) {
+  container.replaceChildren();
+  if (!habits(key).length) {
+    const empty = document.createElement('div'); empty.className = 'empty-state';
+    empty.innerHTML = '<div class="empty-symbol" aria-hidden="true">❧</div><h3>Начните с малого</h3><p>Одна полезная привычка сегодня —<br>начало больших перемен завтра.</p>';
+    container.append(empty); return;
+  }
+  for (const habit of habits(key)) {
+    const row = document.createElement('div'); row.className = 'habit-row'; row.dataset.status = habit.status;
+    const button = document.createElement('button'); button.className = 'status-button'; button.textContent = SYMBOLS[habit.status];
+    button.setAttribute('aria-label', `${habit.name}: ${STATUSES[habit.status]}. Изменить на «${STATUSES[(habit.status + 1) % 3]}»`);
+    button.dataset.action = 'cycle'; button.dataset.id = habit.id; button.title = 'Нажмите, чтобы изменить статус';
+    const text = document.createElement('div'); text.className = 'habit-text';
+    const name = document.createElement('strong'); name.textContent = habit.name;
+    const label = document.createElement('small'); label.textContent = STATUSES[habit.status]; text.append(name, label);
+    const remove = document.createElement('button'); remove.className = 'delete-button'; remove.textContent = '×'; remove.dataset.action = 'delete'; remove.dataset.id = habit.id; remove.setAttribute('aria-label', `Удалить привычку «${habit.name}»`);
+    row.append(button, text, remove); container.append(row);
+  }
+}
+function renderDay() {
+  $('#selected-caption').textContent = selected === today ? 'СЕГОДНЯ · ВАШ ФОКУС' : 'ВЫБРАННЫЙ ДЕНЬ';
+  $('#day-panel-title').textContent = fromKey(selected).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' });
+  $('#selected-summary').textContent = `${completed(selected)} из ${habits(selected).length} выполнено`;
+  $('#selected-percent').textContent = `${progress(selected)}%`;
+  $('#selected-progress').style.width = `${progress(selected)}%`;
+  $('#dialog-title').textContent = fullDate(selected);
+  $('#habit-scope').textContent = `Только на ${fullDate(selected)}. Повторение не требуется.`;
+  renderHabitList($('#selected-habits'), selected);
+  if ($('#day-dialog').open) renderHabitList($('#dialog-habits'), selected);
+}
+function renderAchievements() {
+  const list = $('#achievement-list'); list.replaceChildren();
+  const metrics = achievementMetrics();
+  for (const a of achievements) {
+    const unlocked = Boolean(state.unlocked[a.id]);
+    const card = document.createElement('article'); card.className = `achievement${unlocked ? ' unlocked' : ''}`;
+    card.dataset.achievement = a.id;
+    const icon = document.createElement('span'); icon.className = 'achievement-icon'; icon.textContent = a.icon; icon.setAttribute('aria-hidden', 'true');
+    const content = document.createElement('div');
+    const title = document.createElement('h3'); title.textContent = a.title;
+    const description = document.createElement('p'); description.textContent = a.description;
+    const value = unlocked ? a.goal : Math.min(metrics[a.metric], a.goal);
+    const bar = document.createElement('progress'); bar.className = 'achievement-progress'; bar.max = a.goal; bar.value = value;
+    bar.setAttribute('aria-label', `${a.title}: ${value} из ${a.goal}`);
+    const status = document.createElement('small'); status.textContent = unlocked ? `✓ Открыто ${shortDate(fromKey(state.unlocked[a.id]))}` : `${value} из ${a.goal} · на пути к награде`;
+    content.append(title, description, bar, status); card.append(icon, content); list.append(card);
+  }
+  $('#achievement-count').textContent = `${Object.keys(state.unlocked).length} из ${achievements.length} открыто`;
+}
+function render() { renderStats(); renderCalendar(); renderDay(); renderAchievements(); }
+function openDay(key, focusInput = false) {
+  selected = key;
+  const date = fromKey(key); viewedMonth = new Date(date.getFullYear(), date.getMonth(), 1, 12);
+  render();
+  $('#day-dialog').showModal();
+  renderHabitList($('#dialog-habits'), selected);
+  if (focusInput) $('#habit-name').focus();
+}
+$('#calendar').addEventListener('click', event => { const day = event.target.closest('[data-date]'); if (day) openDay(day.dataset.date); });
+$('#prev-month').addEventListener('click', () => { viewedMonth.setMonth(viewedMonth.getMonth() - 1); renderCalendar(); });
+$('#next-month').addEventListener('click', () => { viewedMonth.setMonth(viewedMonth.getMonth() + 1); renderCalendar(); });
+$('#go-today').addEventListener('click', () => { selected = today; const date = fromKey(today); viewedMonth = new Date(date.getFullYear(), date.getMonth(), 1, 12); render(); });
+$('#hero-add').addEventListener('click', () => openDay(today, true));
+$('#manage-day').addEventListener('click', () => openDay(selected, true));
+$('#close-dialog').addEventListener('click', () => $('#day-dialog').close());
+$('#day-dialog').addEventListener('click', event => { if (event.target !== $('#day-dialog')) return; const rect = $('#day-dialog').getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) $('#day-dialog').close(); });
+$('#day-dialog').addEventListener('close', () => { $('#dialog-notice').textContent = ''; $('#habit-form').reset(); clearHabitError(); document.querySelector(`[data-date="${selected}"]`)?.focus({ preventScroll: true }); });
+function clearHabitError() {
+  $('#habit-name').setCustomValidity('');
+  $('#habit-name').removeAttribute('aria-invalid');
+  $('#habit-error').textContent = '';
+}
+$('#habit-name').addEventListener('input', clearHabitError);
+$('#habit-name').addEventListener('change', clearHabitError);
+$('#habit-form').addEventListener('submit', event => {
+  event.preventDefault();
+  const input = $('#habit-name'), name = input.value.trim();
+  // Validate the current value on every submit, including autofill and Enter.
+  // A previous validation error must never prevent this handler from running.
+  clearHabitError();
+  if (!name) {
+    input.setAttribute('aria-invalid', 'true');
+    $('#habit-error').textContent = 'Введите название привычки.';
+    input.focus();
+    return;
+  }
+  const id = typeof globalThis.crypto?.randomUUID === 'function' ? globalThis.crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  if (!state.days[selected]) state.days[selected] = [];
+  state.days[selected].push({ id, name: name.slice(0, 100), status: 0 });
+  commit(); input.value = ''; input.focus();
+});
+function habitAction(event) {
+  const button = event.target.closest('[data-action]'); if (!button) return;
+  const list = habits(selected), index = list.findIndex(h => h.id === button.dataset.id); if (index < 0) return;
+  const container = event.currentTarget, id = button.dataset.id;
+  if (button.dataset.action === 'cycle') list[index].status = (list[index].status + 1) % 3;
+  else { list.splice(index, 1); if (!list.length) delete state.days[selected]; }
+  commit();
+  const candidates = [...container.querySelectorAll('[data-action="cycle"]')];
+  (candidates.find(b => b.dataset.id === id) || candidates[Math.min(index, candidates.length - 1)] || ($('#day-dialog').open ? $('#habit-name') : $('#manage-day'))).focus({ preventScroll: true });
+}
+$('#selected-habits').addEventListener('click', habitAction);
+$('#dialog-habits').addEventListener('click', habitAction);
+// Refresh calendar and statistics when the page stays open across local midnight.
+setInterval(() => {
+  const next = dateKey(new Date()); if (next === today) return;
+  const followedToday = selected === today && !$('#day-dialog').open; today = next;
+  if (followedToday) { selected = next; const date = fromKey(next); viewedMonth = new Date(date.getFullYear(), date.getMonth(), 1, 12); }
+  render();
+}, 30000);
+window.addEventListener('storage', event => { if (event.key === STORAGE_KEY || event.key === null) { state = loadState(); render(); } });
+const restoredAchievements = checkAchievements();
+if (restoredAchievements.length) persist();
+render();
+if (storageProblem) notify(storageProblem);
+
+</script>
+</body>
+</html>
