@@ -41,6 +41,71 @@
 @media(prefers-reduced-motion:reduce){#achievement-dialog[open],#achievement-dialog[open] .celebration-sparkles i{animation:none}.celebration-sparkles i{opacity:.45}}
 </style>
 
+<style id="city-component-styles">
+/* All styles are scoped so the component can be embedded in another page. */
+.ethos-city {
+  margin: 0 0 28px;
+  padding: 26px 28px 20px;
+  color: #555b50;
+  background: #fcfaf6;
+  border: 1px solid #e3dfd4;
+  border-radius: 10px;
+  font: 14px/1.6 Arial, sans-serif;
+}
+.ethos-city * { box-sizing: border-box; }
+.ethos-city .city-heading { display: flex; justify-content: space-between; gap: 18px; align-items: center; }
+.ethos-city .city-eyebrow { margin: 0 0 4px; color: #898778; font-size: 9px; letter-spacing: 2px; }
+.ethos-city h2 { margin: 0; font: 26px/1.3 Georgia, serif; color: #30352b; }
+.ethos-city .city-state { margin: 0; padding: 6px 12px; border: 1px solid #deded5; border-radius: 20px; font-size: 11px; white-space: nowrap; }
+.ethos-city .city-state.is-active { color: #8d721f; border-color: #d4af37; background: #fbf5df; }
+.ethos-city svg { display: block; width: 100%; height: auto; max-height: 520px; margin: 8px auto 0; overflow: visible; }
+/* Ordinary and ideal days have exactly two colors; no intermediate state. */
+#ancient-city { fill: none; stroke: #9b9d96; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+#ancient-city.active-city { stroke: #d4af37; filter: drop-shadow(0 0 2px #d4af372b); }
+#ancient-city .city-build { opacity: 0; transition: opacity 0.5s ease; }
+#ancient-city .city-build.visible { opacity: 1; }
+#ancient-city .fine-line { stroke-width: 1; }
+#ancient-city #road-guides { opacity: 0.22; }
+#ancient-city #roads.paved #road-guides { opacity: 1; }
+/* Effects switch off immediately, independent of the construction transition. */
+#ancient-city #fx-elements { opacity: 0; visibility: hidden; transition: none; }
+#ancient-city.active-city #fx-elements { opacity: 1; visibility: visible; }
+#ancient-city .flame { transform-box: fill-box; transform-origin: center bottom; animation: city-flame 1.4s ease-in-out infinite alternate; animation-play-state: paused; }
+#ancient-city .flame-inner { animation-delay: -0.7s; animation-duration: 1s; }
+#ancient-city .water-stream { stroke-dasharray: 5 7; animation: city-water 1.2s linear infinite; animation-play-state: paused; }
+#ancient-city .water-ripple { transform-box: fill-box; transform-origin: center; animation: city-ripple 2s ease-out infinite; animation-play-state: paused; }
+#ancient-city.active-city .flame,
+#ancient-city.active-city .water-stream,
+#ancient-city.active-city .water-ripple { animation-play-state: running; }
+.ethos-city .city-caption { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; border-top: 1px solid #e3dfd4; padding-top: 15px; }
+.ethos-city .city-caption p { margin: 0; font-size: 12px; }
+.ethos-city .city-caption strong { font-weight: 600; color: #555b50; }
+.ethos-city .city-progress { width: 100%; height: 4px; display: block; margin-top: 12px; border: 0; border-radius: 4px; overflow: hidden; background: #e8e5dc; accent-color: #92978a; }
+.ethos-city .city-progress::-webkit-progress-bar { background: #e8e5dc; }
+.ethos-city .city-progress::-webkit-progress-value { background: #92978a; }
+.ethos-city .city-progress::-moz-progress-bar { background: #92978a; }
+.ethos-city:has(.active-city) .city-progress { accent-color: #d4af37; }
+.ethos-city:has(.active-city) .city-progress::-webkit-progress-value { background: #d4af37; }
+.ethos-city:has(.active-city) .city-progress::-moz-progress-bar { background: #d4af37; }
+.ethos-city .city-hint { margin: 10px 0 0; font-size: 11px; color: #868779; }
+@keyframes city-flame { from { opacity: .5; transform: scale(.88, .9) rotate(-3deg); } to { opacity: 1; transform: scale(1.05, 1.13) rotate(3deg); } }
+@keyframes city-water { to { stroke-dashoffset: -24; } }
+@keyframes city-ripple { from { opacity: .8; transform: scaleX(.8); } to { opacity: 0; transform: scaleX(1.12); } }
+@media (max-width: 600px) {
+  .ethos-city { padding: 20px 14px 16px; }
+  .ethos-city h2 { font-size: 23px; }
+  .ethos-city .city-heading { align-items: flex-start; gap: 10px; }
+  .ethos-city .city-state { font-size: 10px; padding: 5px 8px; }
+  .ethos-city .city-caption { flex-wrap: wrap; gap: 4px; }
+  .ethos-city svg { margin-top: 18px; }
+  #ancient-city { stroke-width: 2; }
+  #ancient-city .fine-line { stroke-width: 1.5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #ancient-city .city-build { transition: none; }
+  #ancient-city .flame, #ancient-city .water-stream, #ancient-city .water-ripple { animation: none; }
+}
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -62,6 +127,103 @@
       <article class="stat-card"><div class="stat-icon olive" aria-hidden="true">✓</div><div><p>Эта неделя</p><div class="stat-value"><strong id="week-count">0</strong><span>привычек выполнено</span></div><small id="week-range"></small></div></article>
       <article class="stat-card"><div class="stat-icon gold" aria-hidden="true">☀&#65038;</div><div><p>Этот месяц</p><div class="stat-value"><strong id="month-count">0</strong><span>привычек выполнено</span></div><small id="month-caption">Каждый шаг имеет значение</small></div></article>
     </section>
+
+<section class="ethos-city" aria-labelledby="city-heading">
+  <div class="city-heading">
+    <div><p class="city-eyebrow">КАЖДЫЙ ШАГ ОСТАВЛЯЕТ СЛЕД</p><h2 id="city-heading">Ваш город постоянства</h2></div>
+    <p class="city-state" id="city-state">Город отдыхает</p>
+  </div>
+  <svg id="ancient-city" viewBox="0 0 960 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="city-svg-title city-svg-description">
+    <title id="city-svg-title">Античный город привычек</title>
+    <desc id="city-svg-description">Город строится по мере выполнения привычек.</desc>
+    <defs>
+      <g id="olive-tree-model">
+        <path d="M0 0V-35M0-12-13-28M0-21 12-38M0-30-7-43"/>
+        <ellipse cx="-15" cy="-31" rx="12" ry="6" transform="rotate(28 -15 -31)"/>
+        <ellipse cx="14" cy="-40" rx="13" ry="6" transform="rotate(-25 14 -40)"/>
+        <ellipse cx="-7" cy="-46" rx="11" ry="6" transform="rotate(20 -7 -46)"/>
+        <path d="M-6 0H6"/>
+      </g>
+      <g id="amphora-model">
+        <path d="M-5-26H5L4-20C4-16 10-15 10-8S5 0 0 0-10-1-10-8-4-16-4-20ZM-4 0H4M-7-17C-18-21-18-6-10-7M7-17C18-21 18-6 10-7"/>
+      </g>
+      <g id="brazier-model"><path d="M-14-20Q0-1 14-20ZM0-9V0M-8 0H8"/></g>
+      <g id="fire-model">
+        <path class="flame" d="M0-21C-13-25-7-36-2-40-4-31 7-32 4-46 17-33 15-23 0-21Z"/>
+        <path class="flame flame-inner" d="M0-23C-5-27 0-31 2-35 6-29 7-26 0-23Z"/>
+      </g>
+    </defs>
+    <!-- Always visible: an empty hill and a single, unlit altar. -->
+    <g id="ground"><path d="M55 386Q172 359 252 332M252 332Q283 318 310 320M650 320Q677 318 708 332M708 332Q788 360 905 386M310 320H650"/><path class="fine-line" d="M80 401 150 397M817 401 880 409M62 478H898"/></g>
+    <g id="altar"><use href="#brazier-model" transform="translate(480 308)"/></g>
+
+    <!-- 0–25: roads, stonework, stylobate, and column bases. -->
+    <g id="roads" class="city-build" data-at="0">
+      <g id="road-guides"><path d="M330 327 170 478M360 329 226 478M630 327 790 478M600 329 734 478M452 332 384 478M508 332 576 478"/></g>
+      <g id="road-stones" class="city-build fine-line" data-at="6">
+        <path d="M314 343 344 347M291 365 323 370M267 388 300 395M240 414 277 422M208 442 253 449M645 343 616 347M669 365 637 370M693 388 660 395M720 414 683 422M752 442 707 449M443 351H454M506 351H516M431 377H454M506 377H529M418 405H454M506 405H542M402 440H449M511 440H558M430 440 421 461M533 441 542 462M299 363 284 380M251 409 235 427M661 363 676 380M709 409 725 427"/>
+      </g>
+    </g>
+    <g id="foundation" class="city-build" data-at="6">
+      <g id="foundation-first-step"><path d="M310 318V311H453M507 311H650V318M310 318H650"/></g>
+      <g id="foundation-upper-steps" class="city-build" data-at="11"><path d="M320 310V303H453M507 303H640V310M330 302V295H453M507 295H630V302"/></g>
+      <g id="foundation-platform" class="city-build" data-at="16"><path d="M330 295H630M320 303H640M310 311H650M330 295 340 287H620L630 295"/></g>
+      <g id="column-bases-left" class="city-build" data-at="21"><ellipse cx="351" cy="285" rx="14" ry="4"/><ellipse cx="397" cy="285" rx="14" ry="4"/><ellipse cx="444" cy="285" rx="14" ry="4"/></g>
+      <g id="column-bases-right" class="city-build" data-at="25"><ellipse cx="516" cy="285" rx="14" ry="4"/><ellipse cx="563" cy="285" rx="14" ry="4"/><ellipse cx="609" cy="285" rx="14" ry="4"/></g>
+    </g>
+
+    <!-- 26–50: four lateral columns, two central columns, capitals, architrave. -->
+    <g id="columns" class="city-build" data-at="26">
+      <g id="rear-wall"><path d="M366 280V209H594V280M461 280V226H499V280"/></g>
+      <g id="column-outer-left"><path d="M343 281 345 197H357L359 281M351 276V203"/></g>
+      <g id="column-outer-right" class="city-build" data-at="29"><path d="M601 281 603 197H615L617 281M609 276V203"/></g>
+      <g id="column-inner-left" class="city-build" data-at="32"><path d="M389 281 391 197H403L405 281M397 276V203"/></g>
+      <g id="column-inner-right" class="city-build" data-at="35"><path d="M555 281 557 197H569L571 281M563 276V203"/></g>
+      <g id="column-center-left" class="city-build" data-at="36"><path d="M436 281 438 197H450L452 281M444 276V203"/></g>
+      <g id="column-center-right" class="city-build" data-at="40"><path d="M508 281 510 197H522L524 281M516 276V203"/></g>
+      <g id="capitals-left" class="city-build" data-at="41"><path d="M337 189H365V194L357 197H345L337 194ZM383 189H411V194L403 197H391L383 194ZM430 189H458V194L450 197H438L430 194Z"/><path class="fine-line" d="M341 191H361M387 191H407M434 191H454"/></g>
+      <g id="capitals-right" class="city-build" data-at="45"><path d="M502 189H530V194L522 197H510L502 194ZM549 189H577V194L569 197H557L549 194ZM595 189H623V194L615 197H603L595 194Z"/><path class="fine-line" d="M506 191H526M553 191H573M599 191H619"/></g>
+      <g id="architrave" class="city-build" data-at="46"><path d="M328 188V177H632V188ZM328 182H632"/></g>
+      <g id="architrave-frieze" class="city-build fine-line" data-at="50"><path d="M335 174H625M343 178V182M357 178V182M389 178V182M403 178V182M436 178V182M451 178V182M508 178V182M524 178V182M555 178V182M570 178V182M601 178V182M617 178V182"/></g>
+    </g>
+
+    <!-- 51–75: temple pediment, two arches, fountain, olives, amphorae. -->
+    <g id="roof" class="city-build" data-at="51">
+      <g id="roof-pediment"><path d="M310 173 480 92 650 173Z"/></g>
+      <g id="roof-cornice" class="city-build" data-at="56"><path d="M330 166 480 105 630 166ZM308 173V177H652V173"/></g>
+      <g id="roof-details" class="city-build fine-line" data-at="60"><path d="M480 92V83M474 88H486M458 151 480 125 502 151ZM480 133V144M461 153H499"/></g>
+    </g>
+    <g id="scenery" class="city-build" data-at="61">
+      <g id="arch-left"><path d="M186 357V285a36 36 0 0 1 72 0V337M199 351V287a23 23 0 0 1 46 0V339M178 358H204M240 339H266M184 306H200M244 306H260"/><path class="fine-line" d="M190 269 201 276M205 254 211 267M222 249V263M239 254 233 267M254 269 243 276"/></g>
+      <g id="temple-braziers"><use href="#brazier-model" transform="translate(302 316)"/><use href="#brazier-model" transform="translate(658 316)"/></g>
+      <g id="arch-right" class="city-build" data-at="65"><path d="M774 357V285A36 36 0 0 0 702 285V337M761 351V287A23 23 0 0 0 715 287V339M756 358H782M694 339H720M760 306H776M700 306H716"/><path class="fine-line" d="M770 269 759 276M755 254 749 267M738 249V263M721 254 727 267M706 269 717 276"/></g>
+      <g id="fountain" class="city-build" data-at="68" transform="translate(110 5)"><ellipse cx="683" cy="399" rx="46" ry="10"/><path d="M637 399 643 414Q683 432 723 414L729 399M643 414V419Q683 437 723 419V414M683 388V367M668 367Q683 382 698 367Z"/></g>
+      <g id="olive-trees" class="city-build" data-at="71"><use href="#olive-tree-model" transform="translate(146 362)"/><use href="#olive-tree-model" transform="translate(810 362)"/><use href="#olive-tree-model" transform="translate(305 412)"/><use href="#olive-tree-model" transform="translate(604 425)"/></g>
+      <g id="amphorae" class="city-build" data-at="75"><use href="#amphora-model" transform="translate(273 354)"/><use href="#amphora-model" transform="translate(686 354)"/><use href="#amphora-model" transform="translate(350 429)"/></g>
+      <g id="olive-groves" class="city-build" data-at="82"><use href="#olive-tree-model" transform="translate(102 390) scale(.85)"/><use href="#olive-tree-model" transform="translate(849 394) scale(.85)"/><use href="#olive-tree-model" transform="translate(310 456) scale(.8)"/><use href="#olive-tree-model" transform="translate(862 465) scale(.85)"/><use href="#olive-tree-model" transform="translate(365 370) scale(.65)"/></g>
+    </g>
+
+    <!-- 76–100: statue pedestal, legs, torso, face, toga, scroll. -->
+    <g id="statue" class="city-build" data-at="76" transform="translate(0 40)">
+      <g id="statue-pedestal"><path d="M454 422V414H506V422ZM461 414V390H499V414M457 390V384H503V390Z"/><path class="fine-line" d="M470 398H490M473 403H487"/></g>
+      <g id="statue-legs" class="city-build" data-at="86"><path d="M467 348 464 377 460 381H479L482 360 485 377 482 381H498L491 349M479 381V384M498 381V384"/></g>
+      <g id="statue-torso" class="city-build" data-at="90"><path d="M474 318Q466 319 462 327L457 343 466 347 471 334M487 318Q496 320 500 330L504 344 498 348 490 334M474 318 467 348Q480 354 491 349L487 318M464 344 473 337"/></g>
+      <g id="statue-head" class="city-build" data-at="96"><path d="M474 318V314Q466 307 472 298Q480 291 488 298L491 306 488 309 487 318M471 300Q477 304 486 300M477 308 483 310M482 304H484"/></g>
+      <g id="statue-toga" class="city-build fine-line" data-at="98"><path d="M473 320 486 339 470 347M481 321 489 337M472 335 480 345M469 355 467 374M474 355 472 369M485 354 491 374M478 298 479 301"/></g>
+      <g id="statue-scroll" class="city-build" data-at="100"><path d="M495 330 501 328 509 352 502 354Z"/><path class="fine-line" d="M496 332 502 330M503 351 508 349M498 340 503 339M473 314 482 316"/></g>
+    </g>
+
+    <!-- Effects are gated both by the day's state and by the built scenery. -->
+    <g id="fx-elements" aria-hidden="true">
+      <g id="altar-fire"><use href="#fire-model" transform="translate(480 308)"/></g>
+      <g id="temple-fires" class="city-build" data-at="61"><use href="#fire-model" transform="translate(302 316)"/><use href="#fire-model" transform="translate(658 316)"/></g>
+      <g id="fountain-water" class="city-build" data-at="68" transform="translate(110 5)"><path class="water-stream" d="M683 366C670 331 653 362 654 397M683 366C696 331 713 362 712 397M683 366V340"/><ellipse class="water-ripple" cx="683" cy="400" rx="30" ry="5"/></g>
+    </g>
+  </svg>
+  <div class="city-caption"><p><strong id="city-stage">Рождение фундамента</strong></p><p><span id="city-total">0</span> / 100 привычек</p></div>
+  <progress class="city-progress" id="city-progress" value="0" max="100" aria-label="Строительство города"></progress>
+  <p class="city-hint" id="city-hint">Выполните все привычки сегодня, чтобы зажечь город.</p>
+</section>
 
     <div class="workspace-grid">
       <section class="calendar-card panel" id="calendar-section" aria-labelledby="calendar-title">
@@ -91,6 +253,93 @@
     <p id="achievement-queue-count"></p>
   </dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script id="city-component-script">
+/**
+ * Public API: EthosCity.refresh() or EthosCity.update({ totalCompleted, allDoneToday }).
+ * Storage contract: totalCompleted = "0"…"100"; allDoneToday = "true" | "false".
+ * No dependencies. All dates and habit counting remain the host application's responsibility.
+ */
+(() => {
+  'use strict';
+  const svg = document.getElementById('ancient-city');
+  if (!svg) return;
+  const stages = [
+    { from: 0, title: 'Рождение фундамента' },
+    { from: 26, title: 'Возведение колоннады' },
+    { from: 51, title: 'Свод и окружение' },
+    { from: 76, title: 'Триумф и венец творения' },
+  ];
+  const groups = [...svg.querySelectorAll('.city-build[data-at]')];
+
+  function normalize(values = {}) {
+    const number = Number(values.totalCompleted);
+    return {
+      totalCompleted: Number.isFinite(number) ? Math.min(100, Math.max(0, Math.floor(number))) : 0,
+      // Boolean("false") is true: compare explicitly instead.
+      allDoneToday: values.allDoneToday === true || values.allDoneToday === 'true',
+    };
+  }
+
+  function readStorage() {
+    try {
+      return normalize({
+        totalCompleted: localStorage.getItem('totalCompleted'),
+        allDoneToday: localStorage.getItem('allDoneToday'),
+      });
+    } catch {
+      return normalize();
+    }
+  }
+
+  function paint(values) {
+    const { totalCompleted: total, allDoneToday: active } = normalize(values);
+    groups.forEach(group => {
+      const visible = total >= Number(group.dataset.at);
+      group.classList.toggle('visible', visible);
+      group.setAttribute('aria-hidden', String(!visible));
+    });
+    svg.querySelector('#roads').classList.toggle('paved', total >= 6);
+    svg.classList.toggle('active-city', active);
+    const stage = stages.filter(item => total >= item.from).at(-1).title;
+    const goldenEra = total === 100 && active;
+    document.getElementById('city-stage').textContent = goldenEra ? 'Вечная Золотая эра' : stage;
+    document.getElementById('city-total').textContent = total;
+    document.getElementById('city-progress').value = total;
+    const status = document.getElementById('city-state');
+    status.textContent = active ? 'Идеальный день' : 'Город отдыхает';
+    status.classList.toggle('is-active', active);
+    document.getElementById('city-hint').textContent = active
+      ? 'Все привычки сегодня выполнены. Ваш город живёт.'
+      : 'Выполните все привычки сегодня, чтобы зажечь город.';
+    document.getElementById('city-svg-description').textContent =
+      `${goldenEra ? 'Вечная Золотая эра' : stage}. Выполнено ${total} из 100 привычек. ${active ? 'Золотые контуры, огонь и вода в построенных фонтанах.' : 'Серые контуры. Огонь и вода выключены.'}`;
+  }
+
+  function refresh() { paint(readStorage()); }
+
+  function update(values) {
+    const normalized = normalize(values);
+    let saved = true;
+    try {
+      localStorage.setItem('totalCompleted', String(normalized.totalCompleted));
+      localStorage.setItem('allDoneToday', String(normalized.allDoneToday));
+    } catch {
+      saved = false;
+    }
+    // Still display the current state when storage is unavailable.
+    paint(normalized);
+    return saved;
+  }
+
+  window.EthosCity = Object.freeze({ refresh, update });
+  window.addEventListener('storage', event => {
+    if (event.key === null || ['totalCompleted', 'allDoneToday'].includes(event.key)) refresh();
+  });
+  // Same-tab setItem does not fire 'storage': call refresh or dispatch this event.
+  window.addEventListener('ethos:city-update', refresh);
+  refresh();
+})();
+</script>
 <script>
 const STORAGE_KEY = 'ethos-habit-tracker-v1';
 const $ = (selector) => document.querySelector(selector);
@@ -308,7 +557,13 @@ function renderAchievements() {
   }
   $('#achievement-count').textContent = `${Object.keys(state.unlocked).length} из ${achievements.length} открыто`;
 }
-function render() { renderStats(); renderCalendar(); renderDay(); renderAchievements(); }
+function render() {
+  renderStats(); renderCalendar(); renderDay(); renderAchievements();
+  // The SVG reads its own two storage keys; the tracker keeps them in sync.
+  const totalCompleted = Object.keys(state.days).reduce((sum, key) => sum + completed(key), 0);
+  const allDoneToday = habits(today).length > 0 && completed(today) === habits(today).length;
+  window.EthosCity.update({ totalCompleted, allDoneToday });
+}
 function openDay(key, focusInput = false) {
   selected = key;
   const date = fromKey(key); viewedMonth = new Date(date.getFullYear(), date.getMonth(), 1, 12);
